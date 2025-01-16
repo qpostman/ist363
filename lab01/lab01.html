@@ -12,20 +12,25 @@
         color: #0a3981;
         font-size: 20px;
     }
-    .flexbox-1{
+    .flexbox-1, .flexbox-2 {
         display: flex;
         flex-direction: row;
-    }
-    .flexbox-2 {
-        display: flex;
-        flex-direction: row;
+        justify-content: center;
     }
     .bodybackground2 {
         background-color: #D4EBF8;
         padding: 20px;
     }
-    @media (max-width: 1500px) {
-    .flexbox-1,.flexbox-2 {flex-direction: column;}
+    img {
+        width: 500px;
+        height: 480px;
+        border: solid black;
+    }
+    @media (max-width: 600px) {
+    .flexbox-1,.flexbox-2 {
+        flex-direction: column;
+        justify-content: center;
+    }
     }
 
 </style>
