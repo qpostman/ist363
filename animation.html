@@ -21,12 +21,20 @@
         transform: rotate(360deg);
     }
     .otto {
+        position:absolute;
         animation-name: otto;
-        animation-duration: 3s;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+    }
+    @keyframes otto {
+        from {transform: translateX(0)}
+        to {transform: translateX(3000px)}
     }
 </style>
 <body>
    <div class="circle">Go Orange</div>
-   <div class="otto">Otto on Skateboard</div>
+   <div class="otto">
+    <img src="otto-on-skateboard.png" alt="Otto on Skatebord">
+   </div>
 </body>
 </html>
