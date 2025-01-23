@@ -30,13 +30,16 @@
         color:blue
     }
     h1 {
-      position: absolute;
-      width: 100%;
-      box-sizing: content-box;
-      background-color: #666;
-      text-align: right;
-
+        position: relative;
+        animation-name: title;
+        animation-duration: 3s;
+        animation-iteration-count: 1;
     }
+    @keyframes title{
+        from {top: -100px; transform: rotate(360deg)}
+        to {top: 0px; transform: rotate(360deg)}
+    }
+
     @media (max-width: 1000px) {
     .flexbox-1,.flexbox-2 {
         flex-direction: column;
