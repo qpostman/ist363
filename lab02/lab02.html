@@ -32,16 +32,37 @@
     h1 {
         position: relative;
         animation-name: title;
-        animation-duration: 3s;
-        animation-iteration-count: 1;
+        animation-duration: 5s;
+        animation-iteration-count: infinite;
+        animation-timing-function: ease-in-out;
+        transform-origin: center center;
     }
-    @keyframes title{
-        from {top: -100px; transform: rotate(360deg)}
-        to {top: 0px; transform: rotate(360deg)}
+    @keyframes title {
+    0% {
+        top: -100px;
+        transform: rotate(0deg);
     }
+    25% {
+        top: 0px;
+        transform: rotateX(180deg);
+    }
+    50% {
+        top: 0px;
+        transform: rotate(0deg);
+    }
+    75% {
+        top: 0px;
+        transform: rotateX(180deg);
+    }
+    100% {
+        top: 0px;
+        transform: rotate(0deg) scale(1.5); 
+    }
+}
 
     @media (max-width: 1000px) {
     .flexbox-1,.flexbox-2 {
+        display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
