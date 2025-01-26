@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Turn Transitions</title>
+</head>
+<style>
+.submit {
+    width: 100px;
+    height: 50px;
+    text-align: center;
+    background-color: white;
+    border: 1px orange solid;
+    margin: 0 auto;
+    margin-top: 20px;
+    line-height: 45px;
+    font-size: 18px;
+}
+.submit:hover {
+  background-color: orange;
+}
+.submit:active {
+  background-color: orange;
+  transform: scale(1.5);
+}
+.check {
+    display: none;
+    position: absolute;
+    top: 18px;
+    left: 45.5%;
+    transform: translateX(-100%);
+    width: 50px;
+}
+.submit:active + .check {
+    display: block;
+    transform: scale(0.3);
+    
+}
+</style>
+<body>
+    <div class = "submit"> Submit </div>
+    <img src="check.png" alt="check" class="check">
+</html>
