@@ -1,0 +1,32 @@
+.top-section h1 {
+    @include header-styles;
+    margin: 0 0 0 -10px;
+    cursor: pointer;
+    width: 100%;
+    justify-content: center;
+}
+.dishes h1 {
+    @include dish-styles;
+    cursor:pointer;
+    justify-content: left;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 30px;
+}
+.burger {
+    @include dish-styles;
+    text-align:center;
+    height: auto;
+}
+.newsletter{
+    @include email-list;
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: #e4fdc3;
+}
+.dishes2 h1 {
+    @include dish-styles
+}
