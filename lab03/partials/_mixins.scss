@@ -5,3 +5,21 @@
     color: white;
     padding: 20px;
 }
+@mixin dish-styles {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    color: #e2625c;
+    padding: 20px;
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    flex-direction: column;
+    align-items: center;
+}
+@mixin email-list {
+    background-color: #e4fdc3;
+    color: black;
+    padding: 20px;
+    width: 100%;
+}
