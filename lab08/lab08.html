@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab08</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #222;
+            color: white;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        h1 {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+        #gameboard {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .chars img {
+            width: 150px;
+            height: auto;
+        }
+        .fireball img {
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            top: 50%;
+            opacity: 0;
+            padding: 4px;
+        }
+        #fireballleft {
+            left: 10%;
+        }
+        #fireballright {
+            right: 10%;
+        }
+        .fireball.animate #fireballleft {
+            animation: fireballMoveLeft 1s linear forwards;
+        }
+        .fireball.animate #fireballright {
+            animation: fireballMoveRight 1s linear forwards;
+        }
+        @keyframes fireballMoveLeft {
+            0% { left: 10%; opacity: 1; }
+            100% { left: 50%; opacity: 0; }
+        }
+
+        @keyframes fireballMoveRight {
+            0% { right: 10%; opacity: 1; }
+            100% { right: 50%; opacity: 0; }
+        }
+        #scoreboard {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+        #playbutton {
+            margin-top: 20px;
+        }
+        #gameResult, #gameOverMessage {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        #gameOverMessage {
+            font-size: 30px;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Fireball Duel</h1>
+        <div id="gameboard">
+            <div class="chars"><img src="../lab08/images/monster.jpg" alt="monster" id="monster"></div>
+            <div class="fireball">
+                <img src="../lab08/images/fireball.gif" alt="fireball" id="fireballleft">
+                <img src="../lab08/images/fireball.gif" alt="fireball" id="fireballright">
+            </div>
+            <div class="chars"><img src="../lab08/images/girl.jpg" alt="girl" id="girl"></div>
+        </div>
+        <div id="scoreboard">
+            <div>Monster Shield: <span id="mscore">100</span>%</div>
+            <div>Girl Shield: <span id="gscore">100</span>%</div>
+        </div>
+        <div id="playbutton"><button id="throwFireball">Throw Fireball</button></div>
+        <p id="gameResult"></p>
+        <p id="gameOverMessage"></p>
+</body>
+<script>
+    //1 
+    let monsterShield = 100;
+    let girlShield = 100;
+    
+    //2
+    function playGame() {
+        console.log("Fireball Thrown!");
+        animateFireball();
+        calculateDamage();
+        checkGameOver();
+    }
+    document.getElementById("throwFireball").addEventListener("click", playGame);
+
+    //3
+    function animateFireball() {
+        let fireballLeft = document.getElementById("fireballleft");
+        let fireballRight = document.getElementById("fireballright");
+    
+        fireballLeft.classList.remove("animate");
+        fireballRight.classList.remove("animate");
+
+        void fireballLeft.offsetWidth;
+        void fireballRight.offsetWidth;
+
+        fireballLeft.classList.add("animate");
+        fireballRight.classList.add("animate");
+    }
+    //4
+    function calculateDamage() {
+        let monsterDamage = Math.floor(Math.random()* 20) + 1;
+        let girlDamage = Math.floor(Math.random()* 20) + 1;
+
+        monsterShield -= monsterDamage;
+        girlShield -= girlDamage;
+
+        monsterShield = Math.max(0, monsterShield);
+        girlShield = Math.max(0, girlShield);
+
+        document.getElementById("mscore").innerText = monsterShield;
+        document.getElementById("gscore").innerText = girlShield;
+
+        console.log (`Monster takes ${monsterDamage} damage, shield now ${monsterShield}`);
+        console.log (`Girl takes ${girlDamage} damage, shield now ${girlShield}`);
+    }
+    //5
+    function checkGameOver () {
+        let resultText = "";
+        if (monsterShield === 0 && girlShield === 0) {
+                resultText = "They both lost!";
+            } else if (monsterShield === 0) {
+                resultText = "Girl won!";
+            } else if (girlShield === 0) {
+                resultText = "Monster won!";
+            }
+        if (resultText !== "") {
+            document.getElementById("throwFireball").remove();
+            document.getElementById("gameResult").innerText = "GAME OVER";
+            document.getElementById("gameOverMessage").innerText = resultText;
+            console.log(resultText);
+        }
+    }
+</script>
+</html>

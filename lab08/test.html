@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab08 Test</title>
+</head>
+<body>
+    <p id="p1">one</p>
+    <p class="even">two</p>
+    <p class="odd">three</p>
+
+
+    <form id="myForm">
+        <input type="text" name="fname" value="Quinn">
+        <input type="text" name="lname" value="Postman">
+        <input type="submit" value="send form">
+    </form>
+    <p>
+        <button id="myButton">Button</button>
+    </p>
+    <script>
+        function dogYears(years) {
+            return years * 7
+        }
+        let peopleAge = dogYears(13);
+        console.log(peopleAge);
+
+        let picked = document.getElementById('p1');
+        console.log(picked);
+
+        let pTags = document.getElementsByTagName('p');
+        for (i = 0; i < pTags.length; i++){
+            console.log(pTags[i]);
+        }
+
+        console.log(document.getElementById("myForm").elements[0].value);
+
+        document.getElementById('p1').innerHTML='four';
+
+        document.getElementById("myForm").elements[0].value = 'Mia';
+        
+        document.getElementById('p1').style.color = 'orange';
+        document.getElementById('p1').style.textDecoration = 'underline';
+        document.getElementsByTagName('body')[0].style.background.color = 'red';
+
+        document.getElementById('mybutton').addEventListener("click", myFunction);
+
+        function myFunction () {
+            alert("Hello!")
+        }
+    </script>
+</body>
+</html>
