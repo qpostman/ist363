@@ -3,7 +3,7 @@ function reportResults(responseText) {
 
     if (responseText !== 'error') {
         const data = JSON.parse(responseText);
-        const { temperature_2m, precipitation, cloud_cover } = data.current;
+        const { temperature_2m, precipitation, cloud_cover } = data.current_weather;
         const cloudEmoji = cloud_cover > 50 ? '☁️' : '☀️';
 
         weatherHTML = `
