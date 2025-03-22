@@ -29,7 +29,7 @@ function reportResults(responseText) {
         weatherContainer.innerHTML = weatherHTML;
     }
 }
-const endpoint = 'https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&current=temperature_2m,precipitation,cloud_cover&wind_speed_unit=mph&temperature_unit=fahrenheit&precipitation_unit=inch';
+const endpoint = 'https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&hourly=temperature_2m&current=temperature_2m,precipitation,cloud_cover&wind_speed_unit=mph&temperature_unit=fahrenheit&precipitation_unit=inch'
 
 fetch(endpoint)
     .then(response => {
