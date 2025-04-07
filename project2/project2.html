@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cat Gallery & Jokes</title>
+    <title>Cat Jokes</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="../project2/icons8-cat-face-48.png">
     <style>
@@ -69,7 +69,7 @@
                 const data = await res.json();
                 const container = document.getElementById('jokes');
                 const col = document.createElement('div');
-                col.className = 'col-md-4 d-flex justify-content-center';
+                col.className = 'col-md-4 d-flex';
                 col.innerHTML = `
                     <div class="card p-3 shadow-sm">
                         <h5 class="card-title">Cat Joke</h5>
