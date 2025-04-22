@@ -1,41 +1,25 @@
-import React, { useState } from "react";
+import {useState} from "react";
+import About from './About';
+import 'bootstrap/dist/css/bootstrap.css';
 
-const TodoList = () => {
-  const [todoList, setTodoList] = useState([
-    { id: 1, task: "Complete Lab 11", completed: false },
-    { id: 2, task: "Review JSX Events and State", completed: false }
-  ]);
 
-  const markComplete = (id) => {
-    const updatedList = todoList.map(item =>
-      item.id === id ? { ...item, completed: true } : item
-    );
-    setTodoList(updatedList);
-  };
-
+function Home () {
   return (
     <div>
-      <h1>My To-Do List</h1>
-      <ul>
-        {todoList.map((item) => (
-          <li key={item.id} style={{ 
-            textDecoration: item.completed ? "line-through" : "none", 
-            marginBottom: "10px"
-          }}>
-            {item.task}
-            {!item.completed && (
-              <button 
-                onClick={() => markComplete(item.id)} 
-                style={{ marginLeft: "10px" }}
-              >
-                X
-              </button>
-            )}
-          </li>
-        ))}
-      </ul>
+      <h1>Home Page</h1>
     </div>
   );
-};
+}
 
-export default TodoList;
+function App () {
+  const [page, setPage] = useState('home');
+  return (
+    <>
+      <button onClick={()=> setPage('home')}>Home</button>
+      <button onClick={()=> setPage('about')}>About</button>
+      <h1>Hello World</h1>
+      {page === 'home' && <Home />}
+      {page === 'home' && <About />}
+    </>
+  );
+}
