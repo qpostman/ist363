@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>StadiumScore - Interview</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Interview Questions</h1>
+
+  <form id="interview-form">
+    <label>Favorite Sport:<br>
+      <input type="text" name="sport" required>
+    </label><br>
+    <label>Favorite Team:<br>
+      <input type="text" name="team" required>
+    </label><br>
+    <label>Dream Stadium to Visit:<br>
+      <input type="text" name="stadium" required>
+    </label><br>
+    <button type="submit" style="color: inherit; display: block; margin: 20px auto;">Submit</button>
+  </form>
+
+  <p id="thank-you" style="display:none; text-align:center; margin-top:20px;">
+    Answers saved! Proceed to your matches.
+  </p>
+
+  <footer>© 2025 StadiumScore. All rights reserved.</footer>
+
+  <script>
+    document.getElementById("interview-form").addEventListener("submit", function(e) {
+      e.preventDefault();  // Prevent default form submission behavior
+
+      // Get form values
+      const sport = document.querySelector('input[name="sport"]').value;
+      const team = document.querySelector('input[name="team"]').value;
+      const stadium = document.querySelector('input[name="stadium"]').value;
+
+      // Store the values in localStorage
+      localStorage.setItem("sport", sport);
+      localStorage.setItem("team", team);
+      localStorage.setItem("stadium", stadium);
+
+      // Optionally, log to console for debugging
+      console.log("User Preferences Saved:", { sport, team, stadium });
+
+      // Hide the form and display the thank you message
+      this.style.display = "none";
+      document.getElementById("thank-you").style.display = "block";
+
+      // Redirect to contact info page after 1.5 seconds
+      setTimeout(() => window.location.href = "match.html", 1500);
+    });
+  </script>
+</body>
+</html>
