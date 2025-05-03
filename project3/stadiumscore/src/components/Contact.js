@@ -1,4 +1,3 @@
-// src/components/Contact.js
 import React, { useState } from 'react';
 
 function Contact() {
@@ -7,13 +6,11 @@ function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Collect form data
     const name = e.target.name.value;
     const email = e.target.email.value;
     const city = e.target.city.value;
     const country = e.target.country.value;
 
-    // Store contact info in localStorage
     const sport = localStorage.getItem("sport");
     const team = localStorage.getItem("team");
     const stadium = localStorage.getItem("stadium");
@@ -25,7 +22,6 @@ function Contact() {
     localStorage.setItem(`user${newUserNumber}`, JSON.stringify(userData));
     localStorage.setItem("userCount", newUserNumber);
 
-    // Show thank you message and redirect to interview
     setThankYouMessage(true);
 
     setTimeout(() => {

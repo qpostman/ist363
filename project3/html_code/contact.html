@@ -32,18 +32,15 @@
     document.getElementById("contact-form").addEventListener("submit", function(e) {
       e.preventDefault();
 
-      // Collect contact info from the form
       const name = this.name.value;
       const email = this.email.value;
       const city = this.city.value;
       const country = this.country.value;
 
-      // Store contact info and interview data (from localStorage)
       const sport = localStorage.getItem("sport");
       const team = localStorage.getItem("team");
       const stadium = localStorage.getItem("stadium");
 
-      // Store this user data in localStorage
       const userData = {
         name,
         email,
@@ -59,11 +56,10 @@
       localStorage.setItem(`user${newUserNumber}`, JSON.stringify(userData));
       localStorage.setItem("userCount", newUserNumber);
 
-      // Show the thank you message and redirect
       this.style.display = "none";
       document.getElementById("thank-you").style.display = "block";
 
-      setTimeout(() => window.location.href = "interview.html", 1500); // Redirect to interview page
+      setTimeout(() => window.location.href = "interview.html", 1500); 
     });
   </script>
 </body>

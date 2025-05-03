@@ -14,19 +14,15 @@
   <footer>© 2025 StadiumScore. All rights reserved.</footer>
 
   <script>
-    // Fetching users from localStorage
     let users = [];
     let userCount = localStorage.getItem("userCount") || 0;
 
-    // Load all users from localStorage
     for (let i = 1; i <= userCount; i++) {
       let user = JSON.parse(localStorage.getItem(`user${i}`));
       if (user) {
         users.push(user);
       }
     }
-
-    // Current user data (the logged-in user)
     const currentUser = {
       name: localStorage.getItem("name"),
       email: localStorage.getItem("email"),
@@ -37,21 +33,17 @@
       stadium: localStorage.getItem("stadium"),
     };
 
-    // Function to check if any required property is undefined or invalid
     function isValidUser(user) {
       return user && user.sport && user.team && user.name && user.email && user.city && user.country && user.stadium;
     }
 
-    // Function to find matches based on sport, team, or stadium
     function findMatches() {
       const matches = [];
       for (let i = 0; i < users.length; i++) {
         const user = users[i];
 
-        // Skip matching with the current user and invalid users
         if (user.email === currentUser.email || !isValidUser(user)) continue;
 
-        // Match based on at least one of sport, team, or stadium
         if (
           user.sport === currentUser.sport || 
           user.team === currentUser.team || 
@@ -60,18 +52,14 @@
           matches.push(user);
         }
       }
-
-      // Display matches (only the top 3)
       displayMatches(matches);
     }
 
-    // Function to display matches on the page
     function displayMatches(matches) {
       const container = document.getElementById('matches-container');
       if (matches.length === 0) {
         container.innerHTML = `<p>No matches found.</p>`;
       } else {
-        // Only display the top 3 matches
         matches.slice(0, 3).forEach(match => {
           container.innerHTML += `
             <div class="match">
@@ -90,7 +78,6 @@
       }
     }
 
-    // Start finding matches when the page loads
     window.onload = findMatches;
   </script>
 </body>

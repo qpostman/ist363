@@ -29,26 +29,26 @@
 
   <script>
     document.getElementById("interview-form").addEventListener("submit", function(e) {
-      e.preventDefault();  // Prevent default form submission behavior
+      e.preventDefault(); 
 
-      // Get form values
+     
       const sport = document.querySelector('input[name="sport"]').value;
       const team = document.querySelector('input[name="team"]').value;
       const stadium = document.querySelector('input[name="stadium"]').value;
 
-      // Store the values in localStorage
+     
       localStorage.setItem("sport", sport);
       localStorage.setItem("team", team);
       localStorage.setItem("stadium", stadium);
 
-      // Optionally, log to console for debugging
+     
       console.log("User Preferences Saved:", { sport, team, stadium });
 
-      // Hide the form and display the thank you message
+      
       this.style.display = "none";
       document.getElementById("thank-you").style.display = "block";
 
-      // Redirect to contact info page after 1.5 seconds
+     
       setTimeout(() => window.location.href = "match.html", 1500);
     });
   </script>
